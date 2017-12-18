@@ -2,11 +2,45 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <header class="header">
+        <a href="/" class="header__logo">PPC Souilly</a>
+        <nav class="menu">
+            <a href="/" class="hvr-underline-from-center">Accueil</a>
+            <a href="/entrainements" class="hvr-underline-from-center">Entrainements</a>
+            <a href="/actualites" class="hvr-underline-from-center">Actualités</a>
+            <a href="/historique" class="hvr-underline-from-center">Historique</a>
+            <a href="/inscription" class="hvr-underline-from-center">Inscription</a>
+            <a href="/contact" class="hvr-underline-from-center">Contact</a>
+            <a href="/connexion" class="hvr-underline-from-center">Connexion</a>
+        </nav>
+    </header>
+
+    {% block body %}
+
+        <!-- Page Content -->
+        <div class="container">
+
+            {% block content %}{% endblock %}
+
+            <hr>
+
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; PPC Souilly - {{ "now"|date('Y') }}</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- /.container -->
+
+    {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
